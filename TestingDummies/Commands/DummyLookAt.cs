@@ -1,8 +1,5 @@
 ﻿using CommandSystem;
-using Exiled.API.Features;
 using PlayerRoles.FirstPersonControl;
-using System;
-using UnityEngine;
 
 namespace TestingDummies.Commands;
 
@@ -10,9 +7,12 @@ public class DummyLookAt : ICommand
 {
     public string Command => "LookAt";
 
-    public string[] Aliases => new string[] { "devdummylook", "dummylookat", "dummylook", "lookat" };
+    public string[] Aliases => ["devdummylook", "dummylookat", "dummylook", "lookat"];
 
-    public string Description => "Makes the specified dummy look at the target player";
+    public string Description => "Makes the specified dummy look at the target player.";
+
+    public bool SanitizeResponse => true;
+
 
     public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
     {

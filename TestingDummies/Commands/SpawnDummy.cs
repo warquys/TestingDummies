@@ -1,7 +1,5 @@
 ﻿using CommandSystem;
-using Exiled.API.Features;
 using PlayerRoles;
-using System;
 using TestingDummies.SpawningHandler;
 
 namespace TestingDummies.Commands;
@@ -10,9 +8,11 @@ public class SpawnDummy : ICommand
 {
     public string Command => "Spawn";
 
-    public string[] Aliases =>  new string[] { "spawndummy", "spawndevdummy", "spawndev", "spawn" };
+    public string[] Aliases => ["spawndummy", "spawndevdummy", "spawndev", "spawn"];
 
-    public string Description => "Spawns a dummy for development or testing purposes, it has 0 logic";
+    public string Description => "Spawns a dummy for development or testing purposes, it has 0 logic.";
+
+    public bool SanitizeResponse => true;
 
     public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
     {

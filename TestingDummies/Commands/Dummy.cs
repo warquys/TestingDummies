@@ -1,5 +1,4 @@
 ﻿using CommandSystem;
-using System;
 
 namespace TestingDummies.Commands;
 
@@ -10,7 +9,7 @@ public class Dummy : ParentCommand
 
     public override string Command { get; } = "devdummy";
 
-    public override string[] Aliases { get; } = new[] { "DevDummy", "DEVDUMMY", "Devdummy" };
+    public override string[] Aliases { get; } = ["DevDummy", "DEVDUMMY", "Devdummy"];
 
     public override string Description { get; } = "Parent command for handling Dev-Dummies.";
 
@@ -20,11 +19,12 @@ public class Dummy : ParentCommand
         RegisterCommand(new DummyStats());
         RegisterCommand(new RemoveDummy());
         RegisterCommand(new SpawnDummy());
+        RegisterCommand(new SpawnMe());
     }
 
     protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
     {
-        response = "Invalid subcommand! Valid subcommands : LookAt, Stats, Remove, Spawn";
+        response = "Invalid subcommand! Valid subcommands : LookAt, Stats, Remove, Spawn, SpawnMe";
         return false;
     }
 }

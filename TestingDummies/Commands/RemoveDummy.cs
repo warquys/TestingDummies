@@ -1,7 +1,4 @@
 ﻿using CommandSystem;
-using Exiled.API.Features;
-using Exiled.Events.EventArgs.Player;
-using System;
 
 namespace TestingDummies.Commands;
 
@@ -9,9 +6,12 @@ public class RemoveDummy : ICommand
 {
     public string Command => "Remove";
 
-    public string[] Aliases => new string[] { "removedummy", "removedevdummy", "removedev", "remove" };
+    public string[] Aliases => ["removedummy", "removedevdummy", "removedev", "remove"];
 
-    public string Description => "Removes a spawned dev dummy";
+    public string Description => "Removes a spawned dev dummy.";
+
+    public bool SanitizeResponse => true;
+
 
     public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
     {

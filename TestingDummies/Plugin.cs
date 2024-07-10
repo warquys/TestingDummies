@@ -1,8 +1,4 @@
-﻿using Exiled.API.Enums;
-using Exiled.API.Features;
-using System;
-using Exiled.Permissions.Extensions;
-using UnityEngine;
+﻿using Exiled.API.Extensions;
 
 namespace TestingDummies;
 
@@ -10,12 +6,14 @@ public class Plugin : Plugin<Config>
 {
     public static Plugin Instance;
 
-    public override string Name => "Dev Dummies";
-    public override string Prefix => Name;
-    public override string Author => "NotIntense";
+    public const string Permission = "devdummies";
+
+    public override string Name => PluginInfo.PLUGIN_NAME;
+    public override string Prefix => PluginInfo.PLUGIN_GUID.ToSnakeCase();
+    public override string Author => PluginInfo.PLUGIN_AUTHORS;
     public override PluginPriority Priority => PluginPriority.Medium;
-    public override Version Version => new(2, 1, 7);
-    public override Version RequiredExiledVersion => new(7, 0, 0);
+    public override Version Version => new (PluginInfo.PLUGIN_VERSION);
+    public override Version RequiredExiledVersion => new (7, 0, 0);
 
     public override void OnEnabled()
     {           
@@ -29,40 +27,4 @@ public class Plugin : Plugin<Config>
         Instance = null;
         base.OnDisabled();
     }                
-}
-
-public static class Extensions
-{
-    public static bool HasDummyPermissions(this Player player)
-    {
-        if(Plugin.Instance.Config.RequirePermission)
-        {
-            if(player.CheckPermission("devdummies"))
-                return true;
-            return false;
-        }
-        return true;
-    }
-
-    public static (ushort horizontal, ushort vertical) ToClientUShorts(this Quaternion rotation)
-    {
-        const float ToHorizontal = ushort.MaxValue / 360f;
-        const float ToVertical = ushort.MaxValue / 176f;
-
-        float fixVertical = -rotation.eulerAngles.x;
-
-        if (fixVertical < -90f)
-        {
-            fixVertical += 360f;
-        }
-        else if (fixVertical > 270f)
-        {
-            fixVertical -= 360f;
-        }
-
-        float horizontal = Mathf.Clamp(rotation.eulerAngles.y, 0f, 360f);
-        float vertical = Mathf.Clamp(fixVertical, -88f, 88f) + 88f;
-
-        return ((ushort)Math.Round(horizontal * ToHorizontal), (ushort)Math.Round(vertical * ToVertical));
-    }
 }

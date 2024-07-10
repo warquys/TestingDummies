@@ -1,8 +1,4 @@
 ﻿using CommandSystem;
-using Exiled.API.Features;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace TestingDummies.Commands;
 
@@ -10,9 +6,12 @@ public class DummyStats : ICommand
 {
     public string Command => "Stats";
 
-    public string[] Aliases => new string[] { "devdummystats", "dummystats", "stats" };
+    public string[] Aliases => ["devdummystats", "dummystats", "stats"];
 
-    public string Description => "Gives you stats on the specified dummy";
+    public string Description => "Gives you stats on the specified dummy.";
+
+    public bool SanitizeResponse => true;
+
 
     public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
     {
