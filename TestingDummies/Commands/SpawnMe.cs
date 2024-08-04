@@ -9,7 +9,7 @@ internal class SpawnMe : ICommand
 
     public string Command => nameof(SpawnMe);
 
-    public string[] Aliases => ["me", "fstspw", "fastspawn"];
+    public string[] Aliases => ["me", "spm", "fsp", "fstspw", "fastspawn"];
 
     public string Description => "Spawn a dummy with your current role at your position.";
 

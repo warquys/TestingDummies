@@ -9,14 +9,13 @@ public class Dummy : ParentCommand
 
     public override string Command { get; } = "devdummy";
 
-    public override string[] Aliases { get; } = ["DevDummy", "DEVDUMMY", "Devdummy"];
+    public override string[] Aliases { get; } = ["devd"];
 
     public override string Description { get; } = "Parent command for handling Dev-Dummies.";
 
     public override void LoadGeneratedCommands()
     {
         RegisterCommand(new DummyLookAt());
-        RegisterCommand(new DummyStats());
         RegisterCommand(new RemoveDummy());
         RegisterCommand(new SpawnDummy());
         RegisterCommand(new SpawnMe());

@@ -8,7 +8,7 @@ public class SpawnDummy : ICommand
 {
     public string Command => "Spawn";
 
-    public string[] Aliases => ["spawndummy", "spawndevdummy", "spawndev", "spawn"];
+    public string[] Aliases => ["sp", "new", "spawndummy", "spawndevdummy", "spawndev"];
 
     public string Description => "Spawns a dummy for development or testing purposes, it has 0 logic.";
 

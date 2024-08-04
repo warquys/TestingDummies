@@ -7,7 +7,7 @@ public class DummyLookAt : ICommand
 {
     public string Command => "LookAt";
 
-    public string[] Aliases => ["devdummylook", "dummylookat", "dummylook", "lookat"];
+    public string[] Aliases => ["la", "dummylookat", "dummylook"];
 
     public string Description => "Makes the specified dummy look at the target player.";
 

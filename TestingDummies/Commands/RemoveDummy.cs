@@ -6,7 +6,7 @@ public class RemoveDummy : ICommand
 {
     public string Command => "Remove";
 
-    public string[] Aliases => ["removedummy", "removedevdummy", "removedev", "remove"];
+    public string[] Aliases => ["rm", "removedummy", "removedevdummy", "removedev"];
 
     public string Description => "Removes a spawned dev dummy.";
 
