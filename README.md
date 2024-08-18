@@ -12,15 +12,17 @@
 
 *Example: devdummy lookat 3 5*
 
-## DummyStats
+## SpawnMe
 
-**Command:** devdummy stats
+**Command:** devdummy spawnme
 
-**Description:** Provides stats for the specified dummy.
+**Description:** Spawn a dummy with your current role at your position.
 
-**Usage:** devdummy stats [dummyID]
+**Usage:** devdummy spawnme (rolegroupe)
 
-*Example: devdummy stats 3*
+*Example: devdummy spawnme*
+
+*Example: devdummy spawnme scp*
 
 ## RemoveDevDummy
 
